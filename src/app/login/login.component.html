@@ -1,7 +1,12 @@
-<form (submit)="login($event)">
-  <p>Please enter a Username and password</p>
-  <input type="text" placeholder="Username" id="username">
-  <input type="text" placeholder="Password" id="password">
-  <input type="submit" value="Login">
-</form>
+<form class="form-group" (submit)="this.login($event)">
+  <label class="sr-only" for="username">Username</label>
+  <input type="text" class="form-control mb-2 mr-sm-2" id="username" placeholder="Username">
 
+  <label class="sr-only" for="password">Password</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+    </div>
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>

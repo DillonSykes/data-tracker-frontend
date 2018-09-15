@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../api.service';
+import { AuthService } from '../auth.service';
+import { NavigateService } from '../navigate.service';
 
 
 @Component({
@@ -8,10 +9,12 @@ import {ApiService} from '../api.service';
 })
 
 export class LoginComponent implements OnInit {
-  constructor(private Api: ApiService) { }
+  constructor(private authService: AuthService, public navigate: NavigateService) { }
 
   ngOnInit() {
-
+    if (this.authService.isLoggedIn()) {
+      this.navigate.goToHome();
+    }
   }
 
   login(event) {
@@ -19,6 +22,6 @@ export class LoginComponent implements OnInit {
     const target = event.target;
     const username = target.querySelector('#username').value;
     const password = target.querySelector('#password').value;
-    this.Api.getUserCredentials(username, password);
+    this.authService.getUserCredentials(username, password);
   }
 }

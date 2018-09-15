@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import * as luxon from 'luxon';
+import * as moment from 'moment';
+import {NavigateService} from './navigate.service';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root'
 })
 
-export class ApiService {
+export class AuthService {
   private headers =  new HttpHeaders({'Content-Type': 'application/json'});
-  public loggedInStatus = false;
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, public navigate: NavigateService) { }
   // public isAuthenticated(): boolean {
   //
   //   const token =  localStorage.getItem('token');
   //   return !this.jwtHelper.isTokenExpired(token);
   // }
-  getUserCredentials(username: string, password: string) {
+  getUserCredentials(username: string, password: string, ) {
     // const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     this.headers.append('Access-Control-Allow-Origin', '*');
     return this.http.post('https://h1g05j5tmg.execute-api.us-east-1.amazonaws.com/dev/users/login', {
@@ -24,42 +23,39 @@ export class ApiService {
       password: password
     }).subscribe(res => {
       const data: any = res;
+      console.log(data);
       if (data.auth === true) {
-        this.router.navigateByUrl('/home');
-        this.loggedInStatus = this.isLoggedIn();
-        console.log(data);
-
+        this.setSession(data);
+        this.navigate.goToHome();
       } else {
         window.alert('Loggin Failed');
       }
     });
   }
-  getLoginStatus() {
-    return this.loggedInStatus;
-  }
   private setSession(authResult) {
-    const expiresAt = luxon.add(authResult.expiresIn, 'second');
+    const expiresAt = moment().add(authResult.expiresIn, 'second');
 
     localStorage.setItem('id_token', authResult.token);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
   }
 
-  logout() {
+  public logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    this.navigate.goToLogin();
   }
 
   public isLoggedIn() {
-    return luxon.isBefore(this.getExpiration());
+    return moment().isBefore(this.getExpiration());
   }
 
-  isLoggedOut() {
+  public isLoggedOut() {
     return !this.isLoggedIn();
   }
 
-  getExpiration() {
+  public getExpiration() {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
-    return luxon(expiresAt);
+    return moment(expiresAt);
   }
 }
