@@ -1,7 +1,27 @@
-<h1>Create a new session</h1>
-<form class="form-group">
-  <label>Client #1</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="first#1" placeholder="First Name">
-  <input type="text" class="form-control mb-2 mr-sm-2" id="last#1" placeholder="Last Name">
-  <button type="submit" class="btn btn-primary mb-2">Save</button>
+<h3>Create a new session</h3>
+<form class="form-group" #c1Form="ngForm" (ngSubmit)="this.save(c1Form, 1)">
+  <div>
+    <label>Client #1</label>
+    <app-person-form></app-person-form>
+  </div>
 </form>
+  <form class="form-group" #c2Form="ngForm" (ngSubmit)="this.save(c2Form, 2)">
+
+  <div *ngIf="this.numberOfClients === 2">
+    <label>Client #2</label>
+    <app-person-form></app-person-form>
+  </div>
+  <hr style="width: 100%; color: black; height: 1px; background-color:black;"/>
+  <button (click)="this.addSecondClient()"
+          type="submit" class="btn btn-primary mb-2"
+          *ngIf="this.numberOfClients === 1">
+    Add a Client
+  </button>
+  <button (click)="this.deleteSecondClient()"
+          type="submit" class="btn btn-danger mb-2"
+          *ngIf="this.numberOfClients === 2">
+    Remove Client
+  </button>
+</form>
+<button (click)="this.save(c1Form,c2Form)" type="submit" class="btn btn-success mb-2 float-right">Save & Go To Children</button>
+

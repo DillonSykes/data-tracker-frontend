@@ -1,12 +1,12 @@
-<form class="form-group" (submit)="this.login($event)">
+<form #loginForm="ngForm" class="form-group" (ngSubmit)="this.login(loginForm)">
   <label class="sr-only" for="username">Username</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="username" placeholder="Username">
+  <input type="text" ngModel class="form-control mb-2 mr-sm-2" id="username" placeholder="Username" name="username">
 
   <label class="sr-only" for="password">Password</label>
   <div class="input-group mb-2 mr-sm-2">
     <div class="input-group-prepend">
     </div>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" ngModel class="form-control" id="password" placeholder="Password" name="password">
   </div>
   <button type="submit" class="btn btn-primary mb-2">Submit</button>
 </form>

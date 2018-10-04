@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { NavigateService } from '../navigate.service';
-
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth.service';
+import {NavigateService} from '../navigate.service';
 
 @Component({
   // moduleId: module.id,
@@ -9,7 +8,9 @@ import { NavigateService } from '../navigate.service';
 })
 
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, public navigate: NavigateService) { }
+  constructor(private authService: AuthService, public navigate: NavigateService) {
+    // this.username=""
+  }
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
@@ -17,11 +18,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login(event) {
-    event.preventDefault();
-    const target = event.target;
-    const username = target.querySelector('#username').value;
-    const password = target.querySelector('#password').value;
+  login(loginForm) {
+    const username: string = loginForm.value.username;
+    const password: string = loginForm.value.password;
     this.authService.getUserCredentials(username, password);
   }
 }

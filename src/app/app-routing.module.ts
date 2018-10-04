@@ -4,11 +4,14 @@ import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import {NewSessionComponent} from './new-session/new-session.component';
+import {ChildrenComponent} from './children/children.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] },
-  { path: 'new-session', component: NewSessionComponent, canActivate: [AuthGuard]}
+  { path: 'new-session', component: NewSessionComponent, canActivate: [AuthGuard]},
+  { path: 'children', component: ChildrenComponent, canActivate: [AuthGuard]}
+
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

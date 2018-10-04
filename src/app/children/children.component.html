@@ -1,0 +1,26 @@
+<h3>Children</h3>
+<div class="col">
+  <div ngbDropdown class="d-inline-block float-right">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Children</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" #childlist>
+      <button (click)="this.currentChild = 0" class="dropdown-item">Child #1</button>
+    </div>
+    <button class="btn btn-outline-primary" (click)="this.addChild()">Add child</button>
+  </div>
+</div>
+
+
+<div>
+  <h4> Child #{{currentChild + 1}}</h4>
+  <form class="form-group" #c1Form="ngForm">
+    <app-person-form [(person)]="this.children[this.currentChild]"></app-person-form>
+  </form>
+  <!--<button (click)="this.save(c1Form, false)" type="submit" class="btn btn-success mb-2 float-right">Save & Add another-->
+  <!--child-->
+  <!--</button>-->
+  <!--<button (click)="this.save(c1Form, true)" type="submit" class="btn btn-success mb-2 float-right">Save & go to-->
+  <!--GrandChildren-->
+  <!--</button>-->
+</div>
+<pre>{{this.children[this.currentChild] | json}}</pre>
+<pre>{{this.currentChild}}</pre>

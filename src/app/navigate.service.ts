@@ -22,4 +22,15 @@ export class NavigateService {
       console.log(error);
     });
   }
+  public goToChildren(sessionId: string) {
+    this.router.navigateByUrl('/children?sessionId=' + sessionId, ).then().catch((error) => {
+      console.log(error);
+    });
+  }
+
+  public goToGrandChildren() {
+    this.router.navigateByUrl('/grandchildren').then().catch((error) => {
+      console.log(error);
+    });
+  }
 }

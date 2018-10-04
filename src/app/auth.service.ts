@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import * as moment from 'moment';
 import {NavigateService} from './navigate.service';
+import {Person} from './models/person';
+import {forEach} from '@angular/router/src/utils/collection';
+import {environment} from '../environments/environment';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root'
@@ -18,8 +21,8 @@ export class AuthService {
   getUserCredentials(username: string, password: string, ) {
     // const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     this.headers.append('Access-Control-Allow-Origin', '*');
-    return this.http.post('https://h1g05j5tmg.execute-api.us-east-1.amazonaws.com/dev/users/login', {
-      name : username,
+    return this.http.post(environment.API_ENDPOINT + '/users/login', {
+      username : username,
       password: password
     }).subscribe(res => {
       const data: any = res;
@@ -32,6 +35,11 @@ export class AuthService {
       }
     });
   }
+  // postNewSessionWithClients(clients: Person[]) {
+  //   clients.forEach((client) => {
+  //     this.http.post('https://h1g05j5tmg.execute-api.us-east-1.amazonaws.com/dev/');
+  //   })
+  // }
   private setSession(authResult) {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
 
@@ -57,5 +65,8 @@ export class AuthService {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
+  }
+  public getToken() {
+    return localStorage.getItem('id_token');
   }
 }
