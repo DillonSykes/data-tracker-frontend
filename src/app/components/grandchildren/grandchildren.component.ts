@@ -46,7 +46,7 @@ export class GrandchildrenComponent implements OnInit {
         child.smoker = false;
       }
     });
-    this.http.post('http://localhost:3000/grandchildren/new',
+    this.http.post(environment.API_ENDPOINT + '/grandchildren/new',
       {
         token: this.authService.getToken(),
         grandChildren: this.grandChildren,
