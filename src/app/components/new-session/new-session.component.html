@@ -2,14 +2,13 @@
 <form class="form-group" #c1Form="ngForm" (ngSubmit)="this.save(c1Form, 1)">
   <div>
     <label>Client #1</label>
-    <app-person-form></app-person-form>
+    <app-person-form [(person)]="this.clients[0]" ></app-person-form>
   </div>
 </form>
-  <form class="form-group" #c2Form="ngForm" (ngSubmit)="this.save(c2Form, 2)">
-
+<form>
   <div *ngIf="this.numberOfClients === 2">
     <label>Client #2</label>
-    <app-person-form></app-person-form>
+    <app-person-form [(person)]="this.clients[1]"></app-person-form>
   </div>
   <hr style="width: 100%; color: black; height: 1px; background-color:black;"/>
   <button (click)="this.addSecondClient()"
@@ -23,5 +22,5 @@
     Remove Client
   </button>
 </form>
-<button (click)="this.save(c1Form,c2Form)" type="submit" class="btn btn-success mb-2 float-right">Save & Go To Children</button>
+<button (click)="this.save()" type="submit" class="btn btn-success mb-2 float-right">Save & Go To Children</button>
 

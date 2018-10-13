@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth.service';
-import {NavigateService} from '../navigate.service';
+import {AuthService} from '../../auth.service';
+import {NavigateService} from '../../navigate.service';
 
 @Component({
   // moduleId: module.id,

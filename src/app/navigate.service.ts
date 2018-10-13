@@ -28,8 +28,8 @@ export class NavigateService {
     });
   }
 
-  public goToGrandChildren() {
-    this.router.navigateByUrl('/grandchildren').then().catch((error) => {
+  public goToGrandChildren(sessionId: string) {
+    this.router.navigateByUrl('/grandchildren?sessionId=').then().catch((error) => {
       console.log(error);
     });
   }

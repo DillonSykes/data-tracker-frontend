@@ -1,22 +1,25 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Person } from '../models/person';
+import {Component, OnInit} from '@angular/core';
+import {Person} from '../../models/person';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {NavigateService} from '../navigate.service';
-import {AuthService} from '../auth.service';
-import {DataService} from '../data.service';
+import {environment} from '../../../environments/environment';
+import {NavigateService} from '../../navigate.service';
+import {AuthService} from '../../auth.service';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-new-session',
   templateUrl: './new-session.component.html',
   styleUrls: ['./new-session.component.css']
 })
-export class NewSessionComponent implements OnInit, OnDestroy {
+export class NewSessionComponent implements OnInit {
   public dataService: DataService;
   public numberOfClients: number;
+  public clients: Person[];
   public sessionId: string;
   constructor(private http: HttpClient, public navigate: NavigateService, public authService:  AuthService) {
     this.numberOfClients = 1;
+    this.clients = [];
+    this.clients.push(new Person());
   }
 
   ngOnInit() {
@@ -27,30 +30,18 @@ export class NewSessionComponent implements OnInit, OnDestroy {
   public addSecondClient() {
     if (this.numberOfClients < 2) {
       this.numberOfClients++;
+      this.clients.push(new Person());
     }
   }
   public deleteSecondClient() {
     if (this.numberOfClients > 1) {
       this.numberOfClients--;
+      this.clients.pop();
     }
   }
 
-  public save(form1, form2) {
-    const formValue1 = form1.value;
-    const formValue2 = form2.value;
-    // console.log(form.value.first_name);
-    // console.log(form.value.checkbox.smoker);
-    // console.log(form.value.checkbox.amount);
-    // console.log(form1.value);
-    // console.log(form2.value);
-    const client1: Person = {
-      first_name: formValue1.person.first_name,
-      last_name: formValue1.person.last_name,
-      date_of_birth: formValue1.person.dob,
-      smoker: formValue1.checkbox.smoker,
-      smoker_amount: formValue1.checkbox.amount,
-      health_concerns: formValue1.person.health_concerns,
-    };
+  public save() {
+    const client1 = this.clients[0];
     if (!client1.smoker) {
       client1.smoker_amount = 'N/A';
       client1.smoker = false;
@@ -58,14 +49,7 @@ export class NewSessionComponent implements OnInit, OnDestroy {
 
     console.log(client1);
     if (this.numberOfClients > 1) {
-      const client2: Person = {
-        first_name: formValue2.first_name,
-        last_name: formValue2.last_name,
-        date_of_birth: formValue2.dob,
-        smoker: formValue2.checkbox.smoker,
-        smoker_amount: formValue2.checkbox.amount,
-        health_concerns: formValue2.health_concerns,
-      };
+      const client2 = this.clients[1];
       if (!client2.smoker) {
         client2.smoker_amount = 'N/A';
         client2.smoker = false;
@@ -91,7 +75,7 @@ export class NewSessionComponent implements OnInit, OnDestroy {
       });
     } else {
       const body: any = {
-        client1
+        client1: client1
       };
       console.log(body);
       this.http.post(environment.API_ENDPOINT + '/session/new',
@@ -111,14 +95,8 @@ export class NewSessionComponent implements OnInit, OnDestroy {
             // TODO create toast
           }
       });
-      console.log('is it still here? ', this.sessionId);
     }
 
 
-  }
-
-  ngOnDestroy(): void {
-    console.log(this.sessionId);
-    // this.dataService.sessionId = this.sessionId;
   }
 }

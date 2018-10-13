@@ -1,9 +1,9 @@
-<h3>Children</h3>
-<div class="col">
-  <div ngbDropdown class="d-inline-block float-right">
+<h3 class="inline-block" id="header">Children</h3>
+<div class="col inline-block" id="selector">
+  <div ngbDropdown class="inline-block float-md-right">
     <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Children</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" #childlist>
-      <button (click)="this.currentChild = 0" class="dropdown-item">Child #1</button>
+    <div  ngbDropdownMenu aria-labelledby="dropdownBasic1" #grandChildList>
+      <button *ngFor="let child of children; let i = index" (click)="this.currentChild = i" class="dropdown-item">Child #{{i + 1}}</button>
     </div>
     <button class="btn btn-outline-primary" (click)="this.addChild()">Add child</button>
   </div>
@@ -12,6 +12,7 @@
 
 <div>
   <h4> Child #{{currentChild + 1}}</h4>
+
   <form class="form-group" #c1Form="ngForm">
     <app-person-form [(person)]="this.children[this.currentChild]"></app-person-form>
   </form>
@@ -22,5 +23,7 @@
   <!--GrandChildren-->
   <!--</button>-->
 </div>
+<button class="btn btn-success float-right" (click)="this.save()">Save all children</button>
+<button class="btn btn-danger float-left">Delete</button>
 <pre>{{this.children[this.currentChild] | json}}</pre>
 <pre>{{this.currentChild}}</pre>
