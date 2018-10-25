@@ -47,7 +47,7 @@ export class ChildrenComponent implements OnInit {
         child.smoker = false;
       }
     });
-    this.http.post(environment.API_ENDPOINT + '/children/new',
+    this.http.post(environment.LOCAL_HOST + '/children/new',
       {
         token: this.authService.getToken(),
         children: this.children,

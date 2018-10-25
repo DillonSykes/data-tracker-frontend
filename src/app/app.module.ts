@@ -17,6 +17,11 @@ import {ChildrenComponent} from './components/children/children.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {Person} from './models/person';
 import { GrandchildrenComponent } from './components/grandchildren/grandchildren.component';
+import { CareTakerComponent } from './components/care-taker/care-taker.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 
 @NgModule({
@@ -29,6 +34,7 @@ import { GrandchildrenComponent } from './components/grandchildren/grandchildren
     PersonFormComponent,
     ChildrenComponent,
     GrandchildrenComponent,
+    CareTakerComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +44,8 @@ import { GrandchildrenComponent } from './components/grandchildren/grandchildren
     HttpClientModule,
     UiModule,
     NgbModule.forRoot(),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [ NavigateService, AuthService, Person],
   bootstrap: [AppComponent]

@@ -23,13 +23,18 @@ export class NavigateService {
     });
   }
   public goToChildren(sessionId: string) {
-    this.router.navigateByUrl('/children?sessionId=' + sessionId, ).then().catch((error) => {
+    this.router.navigateByUrl('/children?sessionId=' + sessionId).then().catch((error) => {
       console.log(error);
     });
   }
 
   public goToGrandChildren(sessionId: string) {
-    this.router.navigateByUrl('/grandchildren?sessionId=').then().catch((error) => {
+    this.router.navigateByUrl('/grandchildren?sessionId=' + sessionId).then().catch((error) => {
+      console.log(error);
+    });
+  }
+  public goToCareTaker(sessionId: string) {
+    this.router.navigateByUrl('/caretaker?sessionId=' + sessionId).then().catch((error) => {
       console.log(error);
     });
   }

@@ -56,7 +56,7 @@ export class GrandchildrenComponent implements OnInit {
       console.log(data);
       if (data.status === true) {
         // TODO create toast
-        this.navigate.goToGrandChildren(this.sessionId);
+        this.navigate.goToCareTaker(this.sessionId);
       }
     });
   }

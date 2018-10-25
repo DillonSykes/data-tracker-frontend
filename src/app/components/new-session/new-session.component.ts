@@ -54,7 +54,7 @@ export class NewSessionComponent implements OnInit {
         client2.smoker_amount = 'N/A';
         client2.smoker = false;
       }
-      this.http.post(environment.API_ENDPOINT + '/session/new',
+      this.http.post(environment.LOCAL_HOST + '/session/new',
         {
           token: this.authService.getToken(),
           client1: client1,
