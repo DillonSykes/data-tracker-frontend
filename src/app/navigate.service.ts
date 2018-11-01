@@ -30,7 +30,7 @@ export class NavigateService {
         console.log(error);
       });
   }
-  public goToChildren(sessionId: string) {
+  public goToChildren() {
     this.router
       .navigateByUrl("/children")
       .then()
@@ -39,7 +39,7 @@ export class NavigateService {
       });
   }
 
-  public goToGrandChildren(sessionId: string) {
+  public goToGrandChildren() {
     this.router
       .navigateByUrl("/grandchildren")
       .then()
@@ -47,7 +47,7 @@ export class NavigateService {
         console.log(error);
       });
   }
-  public goToCareTaker(sessionId: string) {
+  public goToCareTaker() {
     this.router
       .navigateByUrl("/caretaker")
       .then()
