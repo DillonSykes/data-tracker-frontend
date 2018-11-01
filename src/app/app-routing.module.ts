@@ -6,13 +6,15 @@ import { AuthGuard } from './auth.guard';
 import {NewSessionComponent} from './components/new-session/new-session.component';
 import {ChildrenComponent} from './components/children/children.component';
 import {GrandchildrenComponent} from './components/grandchildren/grandchildren.component';
+import {CareTakerComponent} from './components/care-taker/care-taker.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [ AuthGuard ] },
   { path: 'new-session', component: NewSessionComponent, canActivate: [AuthGuard]},
   { path: 'children', component: ChildrenComponent, canActivate: [AuthGuard]},
-  { path: 'grandchildren', component: GrandchildrenComponent, canActivate: [AuthGuard]}
+  { path: 'grandchildren', component: GrandchildrenComponent, canActivate: [AuthGuard]},
+  { path: 'caretaker', component: CareTakerComponent, canActivate: [AuthGuard]}
 
 
 ];
