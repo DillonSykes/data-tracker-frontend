@@ -66,7 +66,7 @@ export class ChildrenComponent implements OnInit {
       const sessionState = session;
       sessionState.children = this.children;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
-      // this.navigate.goToGrandChildren("s");
+      this.navigate.goToGrandChildren();
       console.log("Done", session);
     });
     // this.store.dispatch(new SessionActions.AddSession(sessionState));
