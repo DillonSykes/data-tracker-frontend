@@ -6,10 +6,11 @@ import { NavigateService } from "../../navigate.service";
 import { DataService } from "../../data.service";
 import { ActivatedRoute } from "@angular/router";
 import { environment } from "../../../environments/environment";
-import {Observable} from 'rxjs';
-import {Session} from '../../models';
-import {AppState} from '../../app.state';
-import {Store} from '@ngrx/store';
+import { Observable } from "rxjs";
+import { Session } from "../../models";
+import { AppState } from "../../app.state";
+import { Store } from "@ngrx/store";
+import * as SessionActions from "../../actions";
 
 @Component({
   selector: "app-grandchildren",
@@ -36,6 +37,7 @@ export class GrandchildrenComponent implements OnInit {
     this.grandChildNumber = 1;
     this.grandChildren = [];
     this.grandChildren.push(new Person());
+    this.session = store.select("session");
   }
 
   ngOnInit() {
@@ -56,19 +58,24 @@ export class GrandchildrenComponent implements OnInit {
         child.smoker = false;
       }
     });
-    this.http
-      .post(environment.API_ENDPOINT + "/grandchildren/new", {
-        token: this.authService.getToken(),
-        grandChildren: this.grandChildren,
-        sessionId: this.sessionId,
-      })
-      .subscribe(res => {
-        const data: any = res;
-        console.log(data);
-        if (data.status === true) {
-          // TODO create toast
-          this.navigate.goToCareTaker(this.sessionId);
-        }
-      });
+    this.session.subscribe(session => {
+      const sessionState = session;
+      sessionState.grandChildren = this.grandChildren;
+      this.store.dispatch(new SessionActions.AddSession(sessionState));
+    });
+    // this.http
+    //   .post(environment.API_ENDPOINT + "/grandchildren/new", {
+    //     token: this.authService.getToken(),
+    //     grandChildren: this.grandChildren,
+    //     sessionId: this.sessionId,
+    //   })
+    //   .subscribe(res => {
+    //     const data: any = res;
+    //     console.log(data);
+    //     if (data.status === true) {
+    //       // TODO create toast
+    //       this.navigate.goToCareTaker(this.sessionId);
+    //     }
+    //   });
   }
 }

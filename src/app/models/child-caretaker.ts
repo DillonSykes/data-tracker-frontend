@@ -1,5 +1,5 @@
-import {Person} from './person';
+import { Person } from "./person";
 
-export interface ChildCaretaker extends Person{
+export class ChildCaretaker extends Person {
   plans: string;
 }
