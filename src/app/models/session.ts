@@ -7,6 +7,7 @@ export interface Session {
   children?: Person[];
   granChildren?: Person[];
   child_caretaker?: ChildCaretaker;
+  college_plans?: number;
 }
 export class Session implements Session {
   constructor(
@@ -15,5 +16,6 @@ export class Session implements Session {
     public children?: Person[],
     public grandChildren?: Person[],
     public child_caretaker?: ChildCaretaker,
+    public college_plans?: number
   ) {}
 }

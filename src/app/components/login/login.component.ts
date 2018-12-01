@@ -1,14 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../auth.service';
-import {NavigateService} from '../../navigate.service';
+import { Component, OnInit } from "@angular/core";
+import { AuthService } from "../../auth.service";
+import { NavigateService } from "../../navigate.service";
 
 @Component({
   // moduleId: module.id,
-  templateUrl: 'login.component.html'
+  templateUrl: "login.component.html",
 })
-
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, public navigate: NavigateService) {
+  constructor(
+    private authService: AuthService,
+    public navigate: NavigateService,
+  ) {
     // this.username=""
   }
 

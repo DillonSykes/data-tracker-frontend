@@ -1,12 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  Renderer2,
-  ViewChild,
-} from "@angular/core";
-import { Person } from "../../models";
-import { environment } from "../../../environments/environment";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Person, Session, smokerPropertyCleaner } from "../../models";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "../../auth.service";
 import { NavigateService } from "../../navigate.service";
@@ -14,7 +7,6 @@ import { DataService } from "../../data.service";
 import { ActivatedRoute } from "@angular/router";
 import { AppState } from "../../app.state";
 import { Store } from "@ngrx/store";
-import { Session } from "../../models";
 import { Observable } from "rxjs/Observable";
 import * as SessionActions from "../../actions";
 
@@ -54,22 +46,16 @@ export class ChildrenComponent implements OnInit {
   }
   public save() {
     console.log("Saving children...");
-    this.children.map(child => {
-      if (!child.smoker) {
-        child.smoker_amount = "N/A";
-        child.smoker = false;
-      }
+    const mappedChildren: Person[] = this.children.map(child => {
+      return smokerPropertyCleaner(child);
     });
-    // let sessionState: Session;
 
     this.session.subscribe(session => {
       const sessionState = session;
-      sessionState.children = this.children;
+      sessionState.children = mappedChildren;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
-      this.navigate.goToGrandChildren();
+      this.navigate.goToCareTaker();
       console.log("Done", session);
     });
-    // this.store.dispatch(new SessionActions.AddSession(sessionState));
-    // console.log("NEW STATE: ", sessionState);
   }
 }

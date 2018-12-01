@@ -23,6 +23,8 @@ import { EffectsModule } from "@ngrx/effects";
 import { AppEffects } from "./app.effects";
 import { reducer } from "./reducers";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { CollegePlansComponent } from "./components/college-plans/college-plans.component";
+import { LiquidAssetsComponent } from './components/liquid-assets/liquid-assets.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
     ChildrenComponent,
     GrandchildrenComponent,
     CareTakerComponent,
+    CollegePlansComponent,
+    LiquidAssetsComponent,
   ],
   imports: [
     CommonModule,
@@ -47,8 +51,8 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
     StoreModule.forRoot({ session: reducer }),
     EffectsModule.forRoot([AppEffects]),
     StoreDevtoolsModule.instrument({
-      maxAge: 10
-    })
+      maxAge: 10,
+    }),
   ],
   providers: [NavigateService, AuthService, Person],
   bootstrap: [AppComponent],

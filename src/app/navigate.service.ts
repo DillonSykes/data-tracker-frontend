@@ -55,4 +55,12 @@ export class NavigateService {
         console.log(error);
       });
   }
+  public goToCollegePlans() {
+    this.router
+      .navigateByUrl("/college-plans")
+      .then()
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }
