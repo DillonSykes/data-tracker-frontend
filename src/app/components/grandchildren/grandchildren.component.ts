@@ -1,11 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Person } from "../../models/person";
+import { Person } from "../../models";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "../../auth.service";
 import { NavigateService } from "../../navigate.service";
 import { DataService } from "../../data.service";
 import { ActivatedRoute } from "@angular/router";
-import { environment } from "../../../environments/environment";
 import { Observable } from "rxjs";
 import { Session } from "../../models";
 import { AppState } from "../../app.state";
@@ -62,20 +61,7 @@ export class GrandchildrenComponent implements OnInit {
       const sessionState = session;
       sessionState.grandChildren = this.grandChildren;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
+      this.navigate.goToCollegePlans();
     });
-    // this.http
-    //   .post(environment.API_ENDPOINT + "/grandchildren/new", {
-    //     token: this.authService.getToken(),
-    //     grandChildren: this.grandChildren,
-    //     sessionId: this.sessionId,
-    //   })
-    //   .subscribe(res => {
-    //     const data: any = res;
-    //     console.log(data);
-    //     if (data.status === true) {
-    //       // TODO create toast
-    //       this.navigate.goToCareTaker(this.sessionId);
-    //     }
-    //   });
   }
 }
