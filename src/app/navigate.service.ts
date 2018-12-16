@@ -63,4 +63,12 @@ export class NavigateService {
         console.log(error);
       });
   }
+  public goToLiquidAssets() {
+    this.router
+      .navigateByUrl("/liquid-assets")
+      .then()
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }

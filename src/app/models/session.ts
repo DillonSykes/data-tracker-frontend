@@ -1,5 +1,6 @@
 import { Person } from "./person";
 import { ChildCaretaker } from "./child-caretaker";
+import { LiquidAssets } from "./liquid-assets";
 
 export interface Session {
   client_1: Person;
@@ -16,6 +17,7 @@ export class Session implements Session {
     public children?: Person[],
     public grandChildren?: Person[],
     public child_caretaker?: ChildCaretaker,
-    public college_plans?: number
+    public college_plans?: number,
+    public liquid_assets?: LiquidAssets,
   ) {}
 }

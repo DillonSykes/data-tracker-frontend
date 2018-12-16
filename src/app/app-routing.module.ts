@@ -7,7 +7,8 @@ import { NewSessionComponent } from "./components/new-session/new-session.compon
 import { ChildrenComponent } from "./components/children/children.component";
 import { GrandchildrenComponent } from "./components/grandchildren/grandchildren.component";
 import { CareTakerComponent } from "./components/care-taker/care-taker.component";
-import {CollegePlansComponent} from './components/college-plans/college-plans.component';
+import { CollegePlansComponent } from "./components/college-plans/college-plans.component";
+import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: "children", component: ChildrenComponent, canActivate: [AuthGuard]},
   { path: "grandchildren", component: GrandchildrenComponent, canActivate: [AuthGuard]},
   { path: "caretaker", component: CareTakerComponent, canActivate: [AuthGuard]},
-  { path: "college-plans", component: CollegePlansComponent, canActivate: [AuthGuard]}
+  { path: "college-plans", component: CollegePlansComponent, canActivate: [AuthGuard]},
+  { path: "liquid-assets", component: LiquidAssetsComponent, canActivate: [AuthGuard]}
 
 
 ];

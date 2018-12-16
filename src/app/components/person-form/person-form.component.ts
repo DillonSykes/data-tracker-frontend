@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ControlContainer, NgForm} from '@angular/forms';
-import {Person} from '../../models/person';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ControlContainer, NgForm } from "@angular/forms";
+import { Person } from "../../models";
 
 @Component({
-  selector: 'app-person-form',
+  selector: "app-person-form",
   template: `
     <fieldset ngModelGroup="person">
       <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="_person.first_name" (ngModelChange)="personChange" id="first#1"
@@ -37,8 +37,8 @@ import {Person} from '../../models/person';
              placeholder="Health Concerns..."
              name="health_concerns">
     </fieldset>`,
-  viewProviders: [{provide: ControlContainer, useExisting: NgForm}],
-  styleUrls: ['./person-form.component.css']
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
+  styleUrls: ["./person-form.component.css"],
 })
 export class PersonFormComponent implements OnInit {
   public checked: boolean;
@@ -54,14 +54,14 @@ export class PersonFormComponent implements OnInit {
     this.personChange.emit(this._person);
   }
 
-  @Output() personChange = new EventEmitter();
+  @Output()
+  personChange = new EventEmitter();
 
   constructor() {
     this.checked = false;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public isChecked() {
     // console.log(this.person);
