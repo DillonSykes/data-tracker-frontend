@@ -2,5 +2,63 @@
 
 <form>
   <label>Bank</label>
-  <input placeholder="bank name...">
+  <div>
+    <input placeholder="bank name..." class="form-control" ([ngModel])="this.liquid_assets.bank" name="bank">
+  </div>
+  <label>Checking account aprox balance</label>
+  <div>
+    <input placeholder="$$$" type="number" class="form-control" ([ngModel])="this.liquid_assets.checkingAcctBalance"
+           name="chkBal">
+  </div>
+  <label>Savings account aprox balance</label>
+  <div>
+    <input placeholder="$$$" type="number" class="form-control" ([ngModel])="this.liquid_assets.savingsAcctBalance">
+  </div>
+  <label>Current Interest rate on savings account</label>
+  <div>
+    <input placeholder="%..." type="number" name="quantity" min="-100" max="500" class="form-control-sm"
+           ([ngModel])="this.liquid_assets.intrestRateOfSavingsAccount">
+  </div>
+  <label>CD's or money market accounts</label>
+  <div class="col inline-block" id="selector">
+    <div ngbDropdown class="inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Accounts</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button *ngFor="let account of liquid_assets.accounts; let i = index" (click)="this.currentAccount = i"
+                class="dropdown-item">
+          Account #{{i + 1}}
+        </button>
+      </div>
+      <button class="btn btn-outline-primary" (click)="this.addAccount()">Add Account</button>
+    </div>
+  </div>
+  <fieldset ngModelGroup="account">
+    <input placeholder="name..." class="form-control-sm"
+           [(ngModel)]="this.liquid_assets.accounts[this.currentAccount].name"
+           name="name">
+    <input placeholder="ROI..." type="number" min="-100" max="500" class="form-control-sm"
+           [(ngModel)]="this.liquid_assets.accounts[this.currentAccount].roi" name="roi">
+  </fieldset>
+  <div>
+    <label>Do you have any stocks, bonds, or mutual fund account that are not retirement accounts?</label>
+    <input placeholder="list them seperate each with a comma" class="form-control"
+           [(ngModel)]="this.nonRetirementAccounts" name="nonRetirementAccounts">
+  </div>
+  <div>
+    <label>How many cars do you own?</label>
+    <input type="number" name="quantity" min="1" max="20" class="form-control-sm"
+           [(ngModel)]="this.liquid_assets.numberOfCars"
+           name="numberOfCars">
+  </div>
+  <div>
+    <label>Any retirement accounts?</label>
+    <input placeholder="list them seperate each with a comma" [(ngModel)]="this.retirementAccounts"
+           name="retirementAccounts" class="form-control">
+  </div>
+  <div>
+    <label>Any other assets?</label>
+    <input placeholder="list them seperate each with a comma" [(ngModel)]="this.otherAccounts" name="otherAccounts"
+           class="form-control">
+  </div>
+  <button (click)="this.save()" class="btn btn-success">Save and Continue</button>
 </form>
