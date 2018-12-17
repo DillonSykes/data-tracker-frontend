@@ -15,7 +15,7 @@ import { CheckBoxComponent } from "./components/check-box/check-box.component";
 import { PersonFormComponent } from "./components/person-form/person-form.component";
 import { ChildrenComponent } from "./components/children/children.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { Person } from "./models";
+import { Goals, Person } from "./models";
 import { GrandchildrenComponent } from "./components/grandchildren/grandchildren.component";
 import { CareTakerComponent } from "./components/care-taker/care-taker.component";
 import { StoreModule } from "@ngrx/store";
@@ -24,7 +24,8 @@ import { AppEffects } from "./app.effects";
 import { reducer } from "./reducers";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { CollegePlansComponent } from "./components/college-plans/college-plans.component";
-import { LiquidAssetsComponent } from './components/liquid-assets/liquid-assets.component';
+import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
+import { ImportantGoalsComponent } from "./components/important-goals/important-goals.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LiquidAssetsComponent } from './components/liquid-assets/liquid-assets.
     CareTakerComponent,
     CollegePlansComponent,
     LiquidAssetsComponent,
+    ImportantGoalsComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +56,7 @@ import { LiquidAssetsComponent } from './components/liquid-assets/liquid-assets.
       maxAge: 10,
     }),
   ],
-  providers: [NavigateService, AuthService, Person],
+  providers: [NavigateService, AuthService, Person, Goals],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -71,4 +71,12 @@ export class NavigateService {
         console.log(error);
       });
   }
+  public goToImportantGoals() {
+    this.router
+      .navigateByUrl("/important-goals")
+      .then()
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }

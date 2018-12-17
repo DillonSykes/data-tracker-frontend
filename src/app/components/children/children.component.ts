@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Person, Session, smokerPropertyCleaner } from "../../models";
-import { HttpClient } from "@angular/common/http";
 import { NavigateService } from "../../navigate.service";
 import { AppState } from "../../app.state";
 import { Store } from "@ngrx/store";
@@ -37,7 +36,7 @@ export class ChildrenComponent implements OnInit {
   }
 
   public save() {
-    console.log("Saving children...");
+    console.log("Saving childrenchildren...");
     const mappedChildren: Person[] = this.children.map(child => {
       return smokerPropertyCleaner(child);
     });
