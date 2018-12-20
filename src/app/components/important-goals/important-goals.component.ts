@@ -14,12 +14,13 @@ import * as SessionActions from "../../actions";
 })
 export class ImportantGoalsComponent implements OnInit {
   public session: Observable<Session>;
+  public goals: Goals;
   constructor(
     private store: Store<AppState>,
     private navigate: NavigateService,
-    public goals: Goals = new Goals(),
   ) {
     this.session = store.select("session");
+    this.goals = new Goals();
   }
 
   ngOnInit() {}

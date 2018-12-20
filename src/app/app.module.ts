@@ -56,7 +56,7 @@ import { ImportantGoalsComponent } from "./components/important-goals/important-
       maxAge: 10,
     }),
   ],
-  providers: [NavigateService, AuthService, Person, Goals],
+  providers: [NavigateService, AuthService, Person],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
