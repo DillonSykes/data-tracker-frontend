@@ -24,7 +24,8 @@ import { AppEffects } from "./app.effects";
 import { reducer } from "./reducers";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { CollegePlansComponent } from "./components/college-plans/college-plans.component";
-import { LiquidAssetsComponent } from './components/liquid-assets/liquid-assets.component';
+import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
+import { ImportantGoalsComponent } from "./components/important-goals/important-goals.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LiquidAssetsComponent } from './components/liquid-assets/liquid-assets.
     CareTakerComponent,
     CollegePlansComponent,
     LiquidAssetsComponent,
+    ImportantGoalsComponent,
   ],
   imports: [
     CommonModule,

@@ -1,32 +1,37 @@
 import { Component, OnInit } from "@angular/core";
-import { NavigateService } from "../../navigate.service";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
+import { NavigateService } from "../../navigate.service";
 import { Observable } from "rxjs";
 import { Session } from "../../models";
+import { Goals } from "../../models";
 import * as SessionActions from "../../actions";
 
 @Component({
-  selector: "app-college-plans",
-  templateUrl: "./college-plans.component.html",
-  styleUrls: ["./college-plans.component.css"],
+  selector: "app-important-goals",
+  templateUrl: "./important-goals.component.html",
+  styleUrls: ["./important-goals.component.css"],
 })
-export class CollegePlansComponent implements OnInit {
+export class ImportantGoalsComponent implements OnInit {
   public session: Observable<Session>;
+  public goals: Goals;
   constructor(
-    private navigate: NavigateService,
     private store: Store<AppState>,
+    private navigate: NavigateService,
   ) {
     this.session = store.select("session");
+    this.goals = new Goals();
   }
 
   ngOnInit() {}
-  private saveState(submitedRating: number) {
+
+  public save() {
     this.session.subscribe(session => {
       const sessionState = session;
-      sessionState.college_plans = submitedRating;
+      sessionState.goals = this.goals;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
-      this.navigate.goToImportantGoals();
+      // TODO navigation
+      console.log("Done", session);
     });
   }
 }
