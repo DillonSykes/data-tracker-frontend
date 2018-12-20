@@ -25,4 +25,12 @@ export class DwellingComponent implements OnInit {
   public flipBool(b: boolean): boolean {
     return !b;
   }
+  public setOwnOption(): void {
+    this.ownOption = true;
+    this.rentOption = false;
+  }
+  public setRentOption(): void {
+    this.ownOption = false;
+    this.rentOption = true;
+  }
 }

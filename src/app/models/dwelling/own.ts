@@ -4,7 +4,7 @@ export class Own {
   type: string;
   payment: number;
   homeOwnerInsurance: boolean;
-  whatsIncluded: string;
+  whatsIncluded?: string;
   stayInHome: boolean;
   constructor() {
     this.value = 0;
