@@ -22,9 +22,6 @@ export class DwellingComponent implements OnInit {
 
   ngOnInit() {}
 
-  public flipBool(b: boolean): boolean {
-    return !b;
-  }
   public setOwnOption(): void {
     this.ownOption = true;
     this.rentOption = false;
@@ -32,5 +29,8 @@ export class DwellingComponent implements OnInit {
   public setRentOption(): void {
     this.ownOption = false;
     this.rentOption = true;
+  }
+  save() {
+
   }
 }
