@@ -15,7 +15,7 @@ import { CheckBoxComponent } from "./components/check-box/check-box.component";
 import { PersonFormComponent } from "./components/person-form/person-form.component";
 import { ChildrenComponent } from "./components/children/children.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { Goals, Person } from "./models";
+import { Person } from "./models";
 import { GrandchildrenComponent } from "./components/grandchildren/grandchildren.component";
 import { CareTakerComponent } from "./components/care-taker/care-taker.component";
 import { StoreModule } from "@ngrx/store";
