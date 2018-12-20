@@ -1,0 +1,31 @@
+<h3>Dwelling</h3>
+<h4 *ngIf="!rentOrOwnSelected">
+  <div class="d-inline-block">
+    <button class="btn btn-primary" style="margin-right: 10px" (click)="rentOption = flipBool(rentOption)"> Renting
+    </button>
+    or
+    <button class="btn btn-primary" style="margin-left: 10px" (click)="ownOption = flipBool(ownOption)"> Own</button>
+  </div>
+</h4>
+<div *ngIf="ownOption">
+  <h4>Own</h4>
+  <form>
+    <label>Current value of home</label>
+    <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="own.value" name="value">
+    <label>What do they owe</label>
+    <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="own.owe" name="owe">
+    <label>What is their payment</label>
+    <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="own.payment"
+           name="payment">
+    <label>Home owners insurance</label>
+    <div>
+      <div class="btn-group" role="group">
+        <!--change button color on click-->
+        <button type="button" class="btn btn-secondary" (click)="own.homeOwnerInsurance = true">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="own.homeOwnerInsurance = false">No</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+

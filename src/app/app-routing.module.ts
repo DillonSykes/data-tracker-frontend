@@ -10,6 +10,7 @@ import { CareTakerComponent } from "./components/care-taker/care-taker.component
 import { CollegePlansComponent } from "./components/college-plans/college-plans.component";
 import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
 import { ImportantGoalsComponent } from "./components/important-goals/important-goals.component";
+import { DwellingComponent } from "./components/dwelling/dwelling.component";
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: "caretaker", component: CareTakerComponent, canActivate: [AuthGuard]},
   { path: "college-plans", component: CollegePlansComponent, canActivate: [AuthGuard]},
   { path: "liquid-assets", component: LiquidAssetsComponent, canActivate: [AuthGuard]},
-  { path: "important-goals", component: ImportantGoalsComponent, canActivate: [AuthGuard]}
+  { path: "important-goals", component: ImportantGoalsComponent, canActivate: [AuthGuard]},
+  { path: "dwelling", component: DwellingComponent, canActivate: [AuthGuard]}
+
 
 ];
 @NgModule({

@@ -79,4 +79,12 @@ export class NavigateService {
         console.log(error);
       });
   }
+  public goToDwelling() {
+    this.router
+      .navigateByUrl("/dwelling")
+      .then()
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }
