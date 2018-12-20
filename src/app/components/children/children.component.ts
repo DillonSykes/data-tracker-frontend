@@ -36,7 +36,7 @@ export class ChildrenComponent implements OnInit {
   }
 
   public save() {
-    console.log("Saving childrenchildren...");
+    console.log("Saving children...");
     const mappedChildren: Person[] = this.children.map(child => {
       return smokerPropertyCleaner(child);
     });
