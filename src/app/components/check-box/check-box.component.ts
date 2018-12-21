@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ControlContainer, NgForm} from '@angular/forms';
+import {Component, OnInit} from "@angular/core";
+import {ControlContainer, NgForm} from "@angular/forms";
 
 @Component({
-  selector: 'app-check-box',
+  selector: "app-check-box",
   template: `
     <h4>Smoker</h4>
     <fieldset ngModelGroup="checkbox">
@@ -17,7 +17,7 @@ import {ControlContainer, NgForm} from '@angular/forms';
       </div>
     </fieldset>`,
   viewProviders: [{provide: ControlContainer, useExisting: NgForm}],
-  styleUrls: ['./check-box.component.css']
+  styleUrls: ["./check-box.component.css"]
 })
 export class CheckBoxComponent implements OnInit {
   public checked: boolean;

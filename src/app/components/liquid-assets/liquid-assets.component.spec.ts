@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LiquidAssetsComponent } from './liquid-assets.component';
+import { LiquidAssetsComponent } from "./liquid-assets.component";
 
-describe('LiquidAssetsComponent', () => {
+describe("LiquidAssetsComponent", () => {
   let component: LiquidAssetsComponent;
   let fixture: ComponentFixture<LiquidAssetsComponent>;
 
@@ -19,7 +19,7 @@ describe('LiquidAssetsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
