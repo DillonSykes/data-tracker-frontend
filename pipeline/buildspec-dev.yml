@@ -25,7 +25,7 @@ phases:
     - npm i
     # Builds Angular application. You can also build using custom environment here like mock or staging
     - echo Build started on `date`
-    - ng build --prod --aot
+    - npm run build
     # Clear S3 bucket.
     - aws s3 rm s3://${S3_BUCKET} --recursive
     - echo S3 bucket is cleared.
