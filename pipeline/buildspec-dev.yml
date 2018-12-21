@@ -9,8 +9,6 @@ env:
 phases:
   install:
     commands:
-    - node -v
-    - npm -v
     # Install Angular CLI, If you are not using Angular 6, install angular/cli@1.7.0 or lower, confirm by running ng -v inside your project folder
     - npm i @angular/cli@6.0.8
     # Install node dependancies.
@@ -29,7 +27,7 @@ phases:
     - aws s3 rm s3://${S3_BUCKET} --recursive
     - echo S3 bucket is cleared.
     # Copy dist folder to S3 bucket, As of Angular 6, builds are stored inside an app folder in distribution and not at the root of the dist folder
-    - aws s3 cp dist s3://${S3_BUCKET} --recursive
+    - aws s3 cp dist s3://$S3_BUCKET --recursive
     - echo Build completed on `date`
 
 artifacts:
