@@ -13,7 +13,6 @@ import * as SessionActions from "../../actions";
   styleUrls: ["./dwelling.component.css"],
 })
 export class DwellingComponent implements OnInit {
-  public rentOrOwnSelected: boolean;
   public rentOption: boolean;
   public ownOption: boolean;
   public own: Own;
@@ -27,7 +26,6 @@ export class DwellingComponent implements OnInit {
     private store: Store<AppState>,
     private navigate: NavigateService,
   ) {
-    this.rentOrOwnSelected = false;
     this.rentOption = false;
     this.ownOption = false;
     this.own = new Own();
