@@ -4,15 +4,16 @@ env:
   variables:
     S3_BUCKET: "data-tracker-dev"
     APP_NAME: "DataTracker"
-    BUILD_ENV : "dev"
+    BUILD_ENV: "dev"
 
 phases:
   pre-install:
     commands:
-      - node -v
-      - npm -v
+
   install:
     commands:
+    - node -v
+    - npm -v
     # Install Angular CLI, If you are not using Angular 6, install angular/cli@1.7.0 or lower, confirm by running ng -v inside your project folder
     - npm i @angular/cli@6.0.8
     # Install node dependancies.
