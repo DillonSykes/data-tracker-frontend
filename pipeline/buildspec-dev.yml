@@ -7,9 +7,6 @@ env:
     BUILD_ENV: "dev"
 
 phases:
-  pre-install:
-    commands:
-
   install:
     commands:
     - node -v
