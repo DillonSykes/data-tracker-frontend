@@ -7,6 +7,10 @@ env:
     BUILD_ENV : "dev"
 
 phases:
+  pre-install:
+    commands:
+      - node -v
+      - npm -v
   install:
     commands:
     # Install Angular CLI, If you are not using Angular 6, install angular/cli@1.7.0 or lower, confirm by running ng -v inside your project folder
