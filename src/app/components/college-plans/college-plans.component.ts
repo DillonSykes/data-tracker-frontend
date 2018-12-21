@@ -21,7 +21,7 @@ export class CollegePlansComponent implements OnInit {
   }
 
   ngOnInit() {}
-  private saveState(submitedRating: number) {
+  public saveState(submitedRating: number) {
     this.session.subscribe(session => {
       const sessionState = session;
       sessionState.college_plans = submitedRating;

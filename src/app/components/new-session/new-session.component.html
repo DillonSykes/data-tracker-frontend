@@ -1,5 +1,5 @@
 <h3>Create a new session</h3>
-<form class="form-group" #c1Form="ngForm" (ngSubmit)="this.save(c1Form, 1)">
+<form class="form-group" #c1Form="ngForm" (ngSubmit)="this.save()">
   <div>
     <label>Client #1</label>
     <app-person-form [(person)]="this.clients[0]" ></app-person-form>
