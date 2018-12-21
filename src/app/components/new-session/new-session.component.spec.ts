@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NewSessionComponent } from './new-session.component';
+import { NewSessionComponent } from "./new-session.component";
 
-describe('NewSessionComponent', () => {
+describe("NewSessionComponent", () => {
   let component: NewSessionComponent;
   let fixture: ComponentFixture<NewSessionComponent>;
 
@@ -19,7 +19,7 @@ describe('NewSessionComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,27 +1,27 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import * as moment from 'moment';
-import {NavigateService} from './navigate.service';
-import {Person} from './models/person';
-import {forEach} from '@angular/router/src/utils/collection';
-import {environment} from '../environments/environment';
-// import { JwtHelperService } from '@auth0/angular-jwt';
+import { Injectable } from "@angular/core";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import * as moment from "moment";
+import {NavigateService} from "./navigate.service";
+import {Person} from "./models/person";
+import {forEach} from "@angular/router/src/utils/collection";
+import {environment} from "../environments/environment";
+// import { JwtHelperService } from "@auth0/angular-jwt";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 export class AuthService {
-  private headers =  new HttpHeaders({'Content-Type': 'application/json'});
+  private headers =  new HttpHeaders({"Content-Type": "application/json"});
   constructor(private http: HttpClient, public navigate: NavigateService) { }
   // public isAuthenticated(): boolean {
   //
-  //   const token =  localStorage.getItem('token');
+  //   const token =  localStorage.getItem("token");
   //   return !this.jwtHelper.isTokenExpired(token);
   // }
   getUserCredentials(username: string, password: string, ) {
-    // const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    this.headers.append('Access-Control-Allow-Origin', '*');
-    return this.http.post(environment.API_ENDPOINT + '/users/login', {
+    // const headers = new HttpHeaders({"Content-Type":"application/json; charset=utf-8"});
+    this.headers.append("Access-Control-Allow-Origin", "*");
+    return this.http.post(environment.API_ENDPOINT + "/users/login", {
       username : username,
       password: password
     }).subscribe(res => {
@@ -31,25 +31,25 @@ export class AuthService {
         this.setSession(data);
         this.navigate.goToHome();
       } else {
-        window.alert('Loggin Failed');
+        window.alert("Loggin Failed");
       }
     });
   }
   // postNewSessionWithClients(clients: Person[]) {
   //   clients.forEach((client) => {
-  //     this.http.post('https://h1g05j5tmg.execute-api.us-east-1.amazonaws.com/dev/');
+  //     this.http.post("https://h1g05j5tmg.execute-api.us-east-1.amazonaws.com/dev/");
   //   })
   // }
   private setSession(authResult) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
+    const expiresAt = moment().add(authResult.expiresIn, "second");
 
-    localStorage.setItem('id_token', authResult.token);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem("id_token", authResult.token);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
   public logout() {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
     this.navigate.goToLogin();
   }
 
@@ -62,11 +62,11 @@ export class AuthService {
   }
 
   public getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
+    const expiration = localStorage.getItem("expires_at");
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }
   public getToken() {
-    return localStorage.getItem('id_token');
+    return localStorage.getItem("id_token");
   }
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {NavigateService} from '../../navigate.service';
-import {AuthService} from '../../auth.service';
+import { Component, OnInit } from "@angular/core";
+import {NavigateService} from "../../navigate.service";
+import {AuthService} from "../../auth.service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
 
