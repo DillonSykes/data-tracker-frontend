@@ -1,0 +1,95 @@
+<div class="container h-100">
+  <h3>Dwelling</h3>
+  <h4 *ngIf="!rentOrOwnSelected">
+    <div class="d-inline-block">
+      <button class="btn btn-primary" style="margin-right: 10px" (click)="setRentOption()"> Renting
+      </button>
+      or
+      <button class="btn btn-primary" style="margin-left: 10px" (click)="setOwnOption()"> Own
+      </button>
+    </div>
+  </h4>
+  <div class="row h-100 justify-content-center align-items-center">
+
+    <div *ngIf="ownOption">
+      <h4>Own</h4>
+      <div class="btn-group" role="group">
+        <button *ngFor="let home of homes; let i = index" class="btn btn-success" (click)="this.own = home">{{ i }}
+        </button>
+      </div>
+      <form>
+        <label>Current value of home</label>
+        <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="own.value"
+               name="value">
+        <label>What do they owe</label>
+        <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="own.owe" name="owe">
+        <label>What is their payment</label>
+        <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="own.payment"
+               name="payment">
+        <label>Home owners insurance</label>
+        <div>
+          <div class="btn-group" role="group">
+            <!--change button color on click-->
+            <button type="button" class="btn btn-secondary" (click)="own.homeOwnerInsurance = true">Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="setHomeInsuranceToFalse()">No</button>
+          </div>
+        </div>
+        <div *ngIf="own.homeOwnerInsurance">
+          <label>What's included</label>
+          <textarea type="text" class="form-control" [(ngModel)]="own.whatsIncluded" name="whatsIncluded"></textarea>
+        </div>
+        <label>stay in their house for 5-10 years</label>
+        <div>
+          <div class="btn-group" role="group">
+            <!--change button color on click-->
+            <button type="button" class="btn btn-secondary" (click)="own.stayInHome = true">Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="own.stayInHome = false">No</button>
+          </div>
+        </div>
+        <div class="btn-group" role="group">
+          <button class="btn btn-success" (click)="saveHome(own)" style="margin-top: 10px">Save Home</button>
+          <!--<button class="btn btn-danger" (click)="deleteHome()">Delete</button>-->
+        </div>
+      </form>
+    </div>
+    <div *ngIf="rentOption">
+      <h4>Renting</h4>
+      <form>
+        <label>Rent Payment</label>
+        <input placeholder="0" type="number" class="form-control" style="width: 300px" [(ngModel)]="rent.rent"
+               name="rent">
+        <label>Plans to buy house</label>
+        <div>
+          <div class="btn-group" role="group">
+            <!--change button color on click-->
+            <button type="button" class="btn btn-secondary" (click)="rent.buyHouse = true">Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="rent.buyHouse = false">No</button>
+          </div>
+        </div>
+        <label>Type of house</label>
+        <input type="text" class="form-control" style="width: 300px" [(ngModel)]="rent.houseType" name="houseType">
+        <label>City or Suburbs</label>
+        <div>
+          <div class="btn-group" role="group">
+            <!--change button color on click-->
+            <button type="button" class="btn btn-secondary" (click)="rent.cityOrSuburbs = city">City</button>
+            <button type="button" class="btn btn-secondary" (click)="rent.cityOrSuburbs = sub">Suburbs</button>
+          </div>
+        </div>
+        <label>Renter insurance company</label>
+        <input type="text" class="form-control" [(ngModel)]="rent.renterInsuranceCompany" name="renterInsuranceCompany">
+        <div>
+          <label>Same as auto insurance company</label>
+        </div>
+        <div>
+          <div class="btn-group" role="group">
+            <!--change button color on click-->
+            <button type="button" class="btn btn-secondary" (click)="rent.sameAsAuto = true">Yes</button>
+            <button type="button" class="btn btn-secondary" (click)="rent.sameAsAuto = false">No</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<button class="btn btn-success float-right" (click)="save()" style="margin-top: 10px">Save & Continue</button>

@@ -30,7 +30,7 @@ export class ImportantGoalsComponent implements OnInit {
       const sessionState = session;
       sessionState.goals = this.goals;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
-      // TODO navigation
+      this.navigate.goToDwelling();
       console.log("Done", session);
     });
   }
