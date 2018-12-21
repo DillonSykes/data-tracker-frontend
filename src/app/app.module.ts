@@ -26,7 +26,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { CollegePlansComponent } from "./components/college-plans/college-plans.component";
 import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
 import { ImportantGoalsComponent } from "./components/important-goals/important-goals.component";
-import { DwellingComponent } from './components/dwelling/dwelling.component';
+import { DwellingComponent } from "./components/dwelling/dwelling.component";
 
 @NgModule({
   declarations: [
