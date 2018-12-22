@@ -87,4 +87,11 @@ export class NavigateService {
         console.log(error);
       });
   }
+  public goToFamily() {
+    this.router
+      .navigateByUrl("/family")
+      .catch(error => {
+      console.log(error);
+    });
+  }
 }

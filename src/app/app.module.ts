@@ -27,6 +27,7 @@ import { CollegePlansComponent } from "./components/college-plans/college-plans.
 import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
 import { ImportantGoalsComponent } from "./components/important-goals/important-goals.component";
 import { DwellingComponent } from "./components/dwelling/dwelling.component";
+import { FamilyComponent } from "./components/family/family.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { DwellingComponent } from "./components/dwelling/dwelling.component";
     LiquidAssetsComponent,
     ImportantGoalsComponent,
     DwellingComponent,
+    FamilyComponent,
   ],
   imports: [
     CommonModule,

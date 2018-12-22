@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import {Own, Rent, Session} from "../../models";
+import { Own, Rent, Session } from "../../models";
 import { CityOrSuburbs } from "../../enums";
 import { NavigateService } from "../../navigate.service";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
-import {Observable} from "rxjs";
+import { Observable } from "rxjs";
 import * as SessionActions from "../../actions";
 // TODO needs to be seperate components
 @Component({
@@ -77,7 +77,7 @@ export class DwellingComponent implements OnInit {
       sessionState.homes = this.homes;
       sessionState.rental = this.rent;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
-      // TODO navigation
+      this.navigate.goToFamily();
     });
   }
 }
