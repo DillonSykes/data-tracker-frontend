@@ -75,6 +75,9 @@ export class DwellingComponent implements OnInit {
     this.session.subscribe(session => {
       const sessionState = session;
       sessionState.homes = this.homes;
+      if (this.rent.rent !== 0) {
+        sessionState.rental = this.rent;
+      }
       sessionState.rental = this.rent;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
       this.navigate.goToFamily();

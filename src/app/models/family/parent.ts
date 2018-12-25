@@ -7,9 +7,9 @@ export class Parent {
   constructor () {
     this.Age = 0;
     this.deceased = false;
-    this.occupation = "null";
-    this.livingSituation = "null";
-    this.health = "null";
+    this.occupation = "";
+    this.livingSituation = "";
+    this.health = "";
   }
 }
 
