@@ -1,38 +1,33 @@
 <form>
-  <label>Parents (check box if deceased)</label>
+  <label> {{ name }} (checkbox if deceased)</label>
   <div class="input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text">Mom</span>
+      <span class="input-group-text">Age</span>
     </div>
-    <input type="number" placeholder="Age" class="form-control">
+    <input type="number" placeholder="Age" class="form-control" [(ngModel)]="_parent.Age" name="age">
     <div class="input-group-append">
       <div class="input-group-text">
-        <input type="checkbox" aria-label="Checkbox for following text input">
+        <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="_parent.deceased"
+               name="deceased">
       </div>
     </div>
   </div>
   <div class="input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text">Dad</span>
+      <span class="input-group-text">Occupation</span>
     </div>
-    <input type="number" placeholder="Age" class="form-control">
-    <div class="input-group-append">
-      <div class="input-group-text">
-        <input type="checkbox" aria-label="Checkbox for following text input">
-      </div>
-    </div>
-  </div>
-  <label>Occupation</label>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Mom</span>
-    </div>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="_parent.occupation" name="occupation">
   </div>
   <div class="input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text">Dad</span>
+      <span class="input-group-text">Health</span>
     </div>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" [(ngModel)]="_parent.health" name="health">
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Living Situation</span>
+    </div>
+    <input type="text" class="form-control" [(ngModel)]="_parent.livingSituation" name="livingSituation">
   </div>
 </form>

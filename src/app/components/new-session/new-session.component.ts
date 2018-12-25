@@ -14,13 +14,10 @@ import * as SessionActions from "../../actions";
   styleUrls: ["./new-session.component.css"],
 })
 export class NewSessionComponent implements OnInit {
-  public dataService: DataService;
   public numberOfClients: number;
   public clients: Person[];
-  public sessionId: string;
   constructor(
     private store: Store<AppState>,
-    private http: HttpClient,
     public navigate: NavigateService,
     public authService: AuthService,
   ) {
@@ -53,7 +50,7 @@ export class NewSessionComponent implements OnInit {
       this.store.dispatch(new SessionActions.AddSession(session));
       this.navigate.goToChildren();
     } else {
-      console.log("This is my client: ", client1);
+      console.log("This is my client1: ", client1);
       console.log("This is my session: ", session);
       this.store.dispatch(new SessionActions.AddSession(session));
       this.navigate.goToChildren();

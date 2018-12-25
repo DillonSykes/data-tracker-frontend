@@ -10,9 +10,9 @@ export class Rent {
   constructor() {
     this.buyHouse = false;
     this.cityOrSuburbs = CityOrSuburbs.NOT_SURE;
-    this.houseType = "";
+    this.houseType = "null";
     this.rent = 0;
-    this.renterInsuranceCompany = "";
+    this.renterInsuranceCompany = "null";
     this.sameAsAuto = false;
   }
 }

@@ -9,10 +9,10 @@ export class Own {
   constructor() {
     this.value = 0;
     this.owe = 0;
-    this.type = "";
+    this.type = "null";
     this.payment = 0;
     this.homeOwnerInsurance = false;
-    this.whatsIncluded = "";
+    this.whatsIncluded = "null";
     this.stayInHome = false;
   }
 }
