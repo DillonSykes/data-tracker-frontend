@@ -3,8 +3,8 @@ export class Goals {
   public otherDecisionMakers: string;
   public rememberedFor: string;
   constructor() {
-    this.goal = "null";
-    this.otherDecisionMakers = "null";
-    this.rememberedFor = "null";
+    this.goal = "";
+    this.otherDecisionMakers = "";
+    this.rememberedFor = "";
   }
 }
