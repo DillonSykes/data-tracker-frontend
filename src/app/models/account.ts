@@ -1,5 +1,8 @@
 export class Account {
   public name: string;
   public roi?: number;
-  constructor() {}
+  constructor() {
+    this.name = "null";
+    this.roi = 0;
+  }
 }
