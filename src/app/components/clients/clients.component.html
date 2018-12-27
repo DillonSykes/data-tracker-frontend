@@ -1,0 +1,5 @@
+<h4>Clients</h4>
+<div class="list-group">
+  <button *ngFor="let client of clients; let i = index"  class="list-group-item list-group-item-action list-group-item-primary">{{clients[i].client_1.last_name}}</button>
+</div>
+<button (click)="getClients()">r</button>

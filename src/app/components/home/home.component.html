@@ -1,3 +1,14 @@
+<!--<button (click)="this.navigate.goToNewSession()" type="button" class="btn btn-primary btn-lg form-control" style="height: 100%">Create Session</button>-->
+<!--<button type="button" class="btn btn-primary btn-lg form-control">Clients</button>-->
+<div class="split left">
+  <div class="centered">
+    <button class="btn btn-primary btn-lg form-control" (click)="this.navigate.goToNewSession()">Create Session
+    </button>
+  </div>
+</div>
 
-<button (click)="this.navigate.goToNewSession()" type="button" class="btn btn-primary btn-lg">Create Session</button>
-<button type="button" class="btn btn-primary btn-lg">Clients</button>
+<div class="split right">
+  <div class="centered">
+    <button type="button" class="btn btn-primary btn-lg form-control" (click)="this.navigate.goToClients()">Clients</button>
+  </div>
+</div>
