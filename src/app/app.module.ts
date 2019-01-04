@@ -30,6 +30,7 @@ import { DwellingComponent } from "./components/dwelling/dwelling.component";
 import { FamilyComponent } from "./components/family/family.component";
 import { FamilyParentsComponent } from "./components/family-parents/family-parents.component";
 import { ClientsComponent } from './components/clients/clients.component';
+import { ListviewComponent } from './components/listview/listview.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ClientsComponent } from './components/clients/clients.component';
     FamilyComponent,
     FamilyParentsComponent,
     ClientsComponent,
+    ListviewComponent,
   ],
   imports: [
     CommonModule,

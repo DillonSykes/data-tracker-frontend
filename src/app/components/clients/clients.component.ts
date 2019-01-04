@@ -10,12 +10,14 @@ import { AuthService } from "../../auth.service";
   styleUrls: ["./clients.component.css"],
 })
 export class ClientsComponent implements OnInit {
-  public clients: any;
+  public clients: any[];
   constructor(
     private http: HttpClient,
     private api: ApiService,
     private authService: AuthService,
-  ) {}
+  ) {
+    this.clients = [];
+  }
 
   ngOnInit() {
     this.http
@@ -25,9 +27,10 @@ export class ClientsComponent implements OnInit {
       .subscribe((clients: any) => {
         this.clients = clients.body;
       });
+    // this.clients = this.api.getAll("/session");
   }
 
-  public getClients() {
-    console.log(this.clients);
+  public getClientsName(i: number) {
+    return this.clients[i].name;
   }
 }

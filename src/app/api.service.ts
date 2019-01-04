@@ -10,10 +10,8 @@ export class ApiService {
   constructor(public http: HttpClient, public authService: AuthService) {}
 
   getAll(path: string): any {
-    this.http.get(environment.API_ENDPOINT + path, {
+    return this.http.get(environment.API_ENDPOINT + path, {
       headers: { "x-access-token": this.authService.getToken() },
-    }).subscribe((res: any) => {
-      return res.body;
     });
   }
 }

@@ -1,0 +1,12 @@
+.icon {
+  display: flex;
+  font-size: x-large;
+  width: fit-content;
+}
+.listview {
+  display: flex;
+  width: 90%;
+}
+.container {
+  display: flex;
+}
