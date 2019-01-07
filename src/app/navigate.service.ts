@@ -94,4 +94,11 @@ export class NavigateService {
       console.log(error);
     });
   }
+  public goToClients() {
+    this.router
+      .navigateByUrl("/clients")
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }

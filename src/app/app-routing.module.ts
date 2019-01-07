@@ -11,7 +11,8 @@ import { CollegePlansComponent } from "./components/college-plans/college-plans.
 import { LiquidAssetsComponent } from "./components/liquid-assets/liquid-assets.component";
 import { ImportantGoalsComponent } from "./components/important-goals/important-goals.component";
 import { DwellingComponent } from "./components/dwelling/dwelling.component";
-import {FamilyComponent} from "./components/family/family.component";
+import { FamilyComponent } from "./components/family/family.component";
+import { ClientsComponent } from "./components/clients/clients.component";
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: "liquid-assets", component: LiquidAssetsComponent, canActivate: [AuthGuard]},
   { path: "important-goals", component: ImportantGoalsComponent, canActivate: [AuthGuard]},
   { path: "dwelling", component: DwellingComponent, canActivate: [AuthGuard]},
-  { path: "family", component: FamilyComponent, canActivate: [AuthGuard]}
+  { path: "family", component: FamilyComponent, canActivate: [AuthGuard]},
+  { path: "clients", component: ClientsComponent, canActivate: [AuthGuard]}
 
 
 ];

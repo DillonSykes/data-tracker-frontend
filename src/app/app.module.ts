@@ -29,6 +29,9 @@ import { ImportantGoalsComponent } from "./components/important-goals/important-
 import { DwellingComponent } from "./components/dwelling/dwelling.component";
 import { FamilyComponent } from "./components/family/family.component";
 import { FamilyParentsComponent } from "./components/family-parents/family-parents.component";
+import { ClientsComponent } from "./components/clients/clients.component";
+import { ListviewComponent } from "./components/listview/listview.component";
+import { DisplayItemComponent } from "./components/display-item/display-item.component";
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { FamilyParentsComponent } from "./components/family-parents/family-paren
     DwellingComponent,
     FamilyComponent,
     FamilyParentsComponent,
+    ClientsComponent,
+    ListviewComponent,
+    DisplayItemComponent,
   ],
   imports: [
     CommonModule,
