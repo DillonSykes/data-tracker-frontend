@@ -33,4 +33,7 @@ export class ClientsComponent implements OnInit {
   public getClientsName(i: number) {
     return this.clients[i].name;
   }
+  displayInfo(i: any) {
+    console.log(this.clients[i].id);
+  }
 }
