@@ -8,4 +8,4 @@ phases:
     # Install node dependancies.
     - npm i
     - npm run lint
-    - ng build
+    - npm run build
