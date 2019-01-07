@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from "@angular/core";
   styleUrls: ["./listview.component.css"],
 })
 export class ListviewComponent implements OnInit {
-  @Input("lastName") lastName: string;
+  @Input("text") text: string;
   constructor() {}
 
   ngOnInit() {}
