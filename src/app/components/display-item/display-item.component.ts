@@ -5,8 +5,8 @@ import {Component, Input, OnInit} from "@angular/core";
   styleUrls: ["./display-item.component.css"],
   template: `
     <div>
-      <label>{{text}}</label>
-      <textarea>{{info}}</textarea>
+      <label style="font-weight: bold">{{text}}</label>
+      <p>{{info}}</p>
     </div>
   `
 })

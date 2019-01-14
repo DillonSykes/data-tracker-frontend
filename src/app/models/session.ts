@@ -6,7 +6,7 @@ import { Own, Rent } from "./dwelling";
 import { Family } from "./family";
 
 export interface Session {
-  client_1: Person;
+  client_1?: Person;
   client_2?: Person;
   children?: Person[];
   granChildren?: Person[];
@@ -15,7 +15,7 @@ export interface Session {
 }
 export class Session implements Session {
   constructor(
-    public client_1: Person,
+    public client_1?: Person,
     public client_2?: Person,
     public children?: Person[],
     public grandChildren?: Person[],
