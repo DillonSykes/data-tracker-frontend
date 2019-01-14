@@ -1,10 +1,10 @@
 export class Goals {
   public goal: string;
-  public otherDecisionMakers: string;
+  public otherDecisionMakers: string[];
   public rememberedFor: string;
   constructor() {
     this.goal = "";
-    this.otherDecisionMakers = "";
+    this.otherDecisionMakers = [];
     this.rememberedFor = "";
   }
 }

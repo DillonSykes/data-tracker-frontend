@@ -11,7 +11,7 @@ export class Person {
   constructor() {}
 }
 export function smokerPropertyCleaner(aPerson) {
-  if (!aPerson.smoker) {
+  if (!aPerson.smoker && aPerson.first_name !== "") {
     aPerson.smoker_amount = "";
     aPerson.smoker = false;
   }

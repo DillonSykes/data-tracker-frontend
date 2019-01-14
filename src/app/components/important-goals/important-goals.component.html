@@ -2,18 +2,18 @@
 <div>
   <label>Most important goal</label>
   <div>
-    <textarea type="text" class="form-control" ([ngModel])="this.goals.goal"></textarea>
+    <textarea type="text" class="form-control" [(ngModel)]="this.goals.goal"></textarea>
   </div>
   <hr>
   <label>Who, besides each other and your immediate family would we need to consider when looking at
-    your overall strategy?</label>
+    your overall strategy? (separate with commas)</label>
   <div>
     <input type="text" placeholder="list and separate by commas" class="form-control"
-           [(ngModel)]="this.goals.otherDecisionMakers">
+           [(ngModel)]="decisionMakers">
   </div>
   <label>What do you what to be remembered for?</label>
   <div>
-    <textarea type="text" class="form-control" ([ngModel])="this.goals.rememberedFor"></textarea>
+    <textarea type="text" class="form-control" [(ngModel)]="this.goals.rememberedFor"></textarea>
   </div>
   <button (click)="save()" class="btn btn-success float-right">Save & Continue</button>
 </div>

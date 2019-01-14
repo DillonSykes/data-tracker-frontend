@@ -13,6 +13,7 @@ import { ImportantGoalsComponent } from "./components/important-goals/important-
 import { DwellingComponent } from "./components/dwelling/dwelling.component";
 import { FamilyComponent } from "./components/family/family.component";
 import { ClientsComponent } from "./components/clients/clients.component";
+import { ClientInfoComponent } from "./components/client-info/client-info.component";
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "important-goals", component: ImportantGoalsComponent, canActivate: [AuthGuard]},
   { path: "dwelling", component: DwellingComponent, canActivate: [AuthGuard]},
   { path: "family", component: FamilyComponent, canActivate: [AuthGuard]},
-  { path: "clients", component: ClientsComponent, canActivate: [AuthGuard]}
+  { path: "clients", component: ClientsComponent, canActivate: [AuthGuard]},
+  { path: "clients/:id", component: ClientInfoComponent, canActivate: [AuthGuard]}
 
 
 ];
