@@ -32,7 +32,7 @@ import { FamilyParentsComponent } from "./components/family-parents/family-paren
 import { ClientsComponent } from "./components/clients/clients.component";
 import { ListviewComponent } from "./components/listview/listview.component";
 import { DisplayItemComponent } from "./components/display-item/display-item.component";
-import { ClientInfoComponent } from './components/client-info/client-info.component';
+import { ClientInfoComponent } from "./components/client-info/client-info.component";
 
 @NgModule({
   declarations: [
