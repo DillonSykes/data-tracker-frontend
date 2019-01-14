@@ -15,17 +15,21 @@ import * as SessionActions from "../../actions";
 export class ImportantGoalsComponent implements OnInit {
   public session: Observable<Session>;
   public goals: Goals;
+  public decisionMakers: string;
   constructor(
     private store: Store<AppState>,
     private navigate: NavigateService,
   ) {
     this.session = store.select("session");
     this.goals = new Goals();
+    this.decisionMakers = "";
   }
 
   ngOnInit() {}
 
   public save() {
+    this.goals.otherDecisionMakers = this.decisionMakers.split(",");
+    console.log(this.goals);
     this.session.subscribe(session => {
       const sessionState = session;
       sessionState.goals = this.goals;

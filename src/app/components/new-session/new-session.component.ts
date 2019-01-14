@@ -50,8 +50,6 @@ export class NewSessionComponent implements OnInit {
       this.store.dispatch(new SessionActions.AddSession(session));
       this.navigate.goToChildren();
     } else {
-      console.log("This is my client1: ", client1);
-      console.log("This is my session: ", session);
       this.store.dispatch(new SessionActions.AddSession(session));
       this.navigate.goToChildren();
     }
