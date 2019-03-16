@@ -41,7 +41,7 @@ import { ChildrenViewComponent } from "./client-view/children-view";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { InfoNavBarComponent } from "./client-view/info-nav-bar/info-nav-bar.component";
-import { HomeViewComponent } from './client-view/home-view/home-view.component';
+import { HomeViewComponent } from "./client-view/home-view/home-view.component";
 
 @NgModule({
   declarations: [
