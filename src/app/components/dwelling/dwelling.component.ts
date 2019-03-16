@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { Own, Rent, Session } from "../../models";
+import { IOwn, IRent, Own, Rent, Session } from "../../models";
 import { CityOrSuburbs } from "../../enums";
 import { NavigateService } from "../../navigate.service";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../app.state";
 import { Observable } from "rxjs";
 import * as SessionActions from "../../actions";
+import { ToastrService } from "ngx-toastr";
 // TODO needs to be seperate components
 @Component({
   selector: "app-dwelling",
@@ -15,16 +16,17 @@ import * as SessionActions from "../../actions";
 export class DwellingComponent implements OnInit {
   public rentOption: boolean;
   public ownOption: boolean;
-  public own: Own;
-  public rent: Rent;
-  public homes: Own[];
-  public rentedHomes: Rent[];
+  public own: IOwn;
+  public rent: IRent;
+  public homes: IOwn[];
+  public rentedHomes: IRent[];
   public city: CityOrSuburbs;
   public sub: CityOrSuburbs;
   public session: Observable<Session>;
   constructor(
     private store: Store<AppState>,
     private navigate: NavigateService,
+    private toastr: ToastrService,
   ) {
     this.rentOption = false;
     this.ownOption = false;
@@ -48,19 +50,20 @@ export class DwellingComponent implements OnInit {
     this.rentOption = true;
   }
   public saveHome(home: Own): void {
-    if (home.value === 0) {
-      alert("Please enter an aprox value of the home");
+    if (!home.value || home.value === 0) {
+      this.toastr.error("Please enter an aprox value of the home");
       return;
     }
     if (this.homes.length >= 10) {
-      alert("You can only add 10 houses");
+      this.toastr.error("You can only add 10 houses");
       return;
+    } else {
+      const aHome: Own = { ...home };
+      this.homes.push(aHome);
+      this.own = new Own();
+      console.log(this.homes);
+      this.toastr.success("Home Saved!");
     }
-    const aHome: Own = { ...home };
-    this.homes.push(aHome);
-    this.own = new Own();
-    console.log(this.homes);
-    // TODO add toast
   }
   deleteHome(i: number) {
     // TODO get this working
@@ -69,17 +72,19 @@ export class DwellingComponent implements OnInit {
   // needed to reset whatsIncluded
   public setHomeInsuranceToFalse() {
     this.own.homeOwnerInsurance = false;
-    this.own.whatsIncluded = "";
   }
   public save() {
     this.session.subscribe(session => {
       const sessionState = session;
-      sessionState.homes = this.homes;
+      if (this.homes.length < 1) {
+        sessionState.homes = this.homes;
+      }
       if (this.rent.rent !== 0) {
         sessionState.rental = this.rent;
       }
       sessionState.rental = this.rent;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
+      this.toastr.success("Dwellings saved");
       this.navigate.goToFamily();
     });
   }

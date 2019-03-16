@@ -65,7 +65,7 @@ import {Observable} from "rxjs";
         </div>
       </div>
     </div>
-    <button (click)="mapToVm(sessionOb)"> Some</button>`,
+    <button> Some</button>`,
   styleUrls: ["./client-info.component.css"],
 })
 export class ClientInfoComponent implements OnInit {

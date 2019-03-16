@@ -1,4 +1,4 @@
-export class Own {
+export interface IOwn {
   value: number;
   owe: number;
   type: string;
@@ -6,13 +6,14 @@ export class Own {
   homeOwnerInsurance: boolean;
   whatsIncluded?: string;
   stayInHome: boolean;
-  constructor() {
-    this.value = 0;
-    this.owe = 0;
-    this.type = "";
-    this.payment = 0;
-    this.homeOwnerInsurance = false;
-    this.whatsIncluded = "";
-    this.stayInHome = false;
-  }
+}
+export class Own implements IOwn {
+  value: number;
+  owe: number;
+  type: string;
+  payment: number;
+  homeOwnerInsurance: boolean;
+  whatsIncluded?: string;
+  stayInHome: boolean;
+  constructor() {}
 }
