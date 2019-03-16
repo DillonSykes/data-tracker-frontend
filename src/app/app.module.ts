@@ -41,6 +41,7 @@ import { ChildrenViewComponent } from "./client-view/children-view";
 import { HrBtnGroupComponent } from "./shared/hr-btn-group.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { InfoNavBarComponent } from './client-view/info-nav-bar/info-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ToastrModule } from "ngx-toastr";
     ClientViewComponent,
     ChildrenViewComponent,
     HrBtnGroupComponent,
+    InfoNavBarComponent,
   ],
   imports: [
     CommonModule,

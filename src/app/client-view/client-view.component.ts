@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Session } from "../models";
 import { ApiService } from "../api.service";
 import { ActivatedRoute } from "@angular/router";
 
@@ -16,14 +15,16 @@ import { ActivatedRoute } from "@angular/router";
           <app-person-view [person]=session.client_1></app-person-view>
         </th>
       </table>
-      <app-children-view [session]="session"></app-children-view>
+      <app-info-nav-bar (btnSelector)="switch($event)"></app-info-nav-bar>
+      <app-children-view childSelector={{this.selector}} [session]="session"></app-children-view>
     </div>`,
 })
 export class ClientViewComponent implements OnInit {
   session: any;
-
+  selector: number;
   constructor(private api: ApiService, private route: ActivatedRoute) {
     this.session = {};
+    this.selector = -1;
   }
 
   ngOnInit() {
@@ -40,5 +41,8 @@ export class ClientViewComponent implements OnInit {
 
   multipleClients() {
     return !!this.session.client_2;
+  }
+  switch(state: number) {
+    this.selector = state;
   }
 }
