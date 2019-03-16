@@ -32,9 +32,7 @@ export class HomeViewComponent implements OnInit {
   @Input("homeSelector")
   homeSelector: number;
 
-  constructor() {
-    console.log(this.homes);
-  }
+  constructor() {}
 
   ngOnInit() {}
 }
