@@ -22,7 +22,6 @@ export class ApiService {
     });
   }
   deleteClient(id: string): Observable<any> {
-    console.log(id);
     return this.http.delete(
       environment.API_ENDPOINT + `/session/${id}`,
       {
