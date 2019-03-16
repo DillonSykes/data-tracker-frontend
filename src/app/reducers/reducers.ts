@@ -8,7 +8,7 @@ const initialState: Session = {
 };
 // Section 2
 export function reducer(
-  state: Session = initialState,
+  state: any = {},
   action: SessionActions.Actions,
 ) {
   // Section 3

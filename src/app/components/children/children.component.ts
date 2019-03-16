@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Person, Session, smokerPropertyCleaner } from "../../models";
+import { Person, Session } from "../../models";
 import { NavigateService } from "../../navigate.service";
 import { AppState } from "../../app.state";
 import { Store } from "@ngrx/store";
@@ -37,13 +37,9 @@ export class ChildrenComponent implements OnInit {
 
   public save() {
     console.log("Saving children...");
-    const mappedChildren: Person[] = this.children.map(child => {
-      return smokerPropertyCleaner(child);
-    });
-
     this.session.subscribe(session => {
       const sessionState = session;
-      sessionState.children = mappedChildren;
+      sessionState.children = this.children;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
       this.navigate.goToCareTaker();
       console.log("Done", session);

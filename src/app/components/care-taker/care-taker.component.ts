@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { AppState } from "../../app.state";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { ChildCaretaker, Session, smokerPropertyCleaner } from "../../models";
+import { ChildCaretaker, Session } from "../../models";
 import * as SessionActions from "../../actions";
 import { NavigateService } from "../../navigate.service";
 
@@ -41,14 +41,13 @@ export class CareTakerComponent implements OnInit {
     } else {
       this.caretaker.plans = "N/A";
     }
-    const mappedCaretaker = smokerPropertyCleaner(this.caretaker);
     this.session.subscribe(session => {
       const sessionState: Session = session;
-      sessionState.child_caretaker = mappedCaretaker;
+      sessionState.child_caretaker = this.caretaker;
       this.store.dispatch(new SessionActions.AddSession(sessionState));
       this.navigate.goToGrandChildren();
     });
-    if (this.inputText === "N/A") {
+    if (this.inputText === "") {
       console.log(this.inputText);
     }
   }

@@ -1,19 +1,17 @@
-import { CareTakerComponent } from "../components/care-taker/care-taker.component";
-import { ChildCaretaker } from "./child-caretaker";
-
-export class Person {
+export interface IPerson {
+  first_name: string;
+  last_name: string;
+  date_of_birth: string;
+  smoker: boolean;
+  smoker_amount?: string;
+  health_concerns: string;
+}
+export class Person implements IPerson {
   public first_name: string;
   public last_name: string;
   public date_of_birth: string;
-  public smoker?: boolean;
+  public smoker: boolean;
   public smoker_amount?: string;
   public health_concerns: string;
   constructor() {}
-}
-export function smokerPropertyCleaner(aPerson) {
-  if (!aPerson.smoker && aPerson.first_name !== "") {
-    aPerson.smoker_amount = "";
-    aPerson.smoker = false;
-  }
-  return aPerson;
 }

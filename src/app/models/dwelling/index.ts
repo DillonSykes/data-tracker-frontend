@@ -1,2 +1,2 @@
-export { Own } from "./own";
-export { Rent } from "./rent";
+export { Own, IOwn } from "./own";
+export { Rent, IRent } from "./rent";

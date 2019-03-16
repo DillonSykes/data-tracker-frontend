@@ -33,6 +33,14 @@ import { ClientsComponent } from "./components/clients/clients.component";
 import { ListviewComponent } from "./components/listview/listview.component";
 import { DisplayItemComponent } from "./components/display-item/display-item.component";
 import { ClientInfoComponent } from "./components/client-info/client-info.component";
+import { TitleComponent } from "./client-view/info-components/title/title.component";
+import { PersonViewComponent } from "./client-view/person-view";
+import { InfoComponent } from "./client-view/info-components/info/info.component";
+import { ClientViewComponent } from "./client-view";
+import { ChildrenViewComponent } from "./client-view/children-view";
+import { HrBtnGroupComponent } from "./shared/hr-btn-group.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -55,6 +63,12 @@ import { ClientInfoComponent } from "./components/client-info/client-info.compon
     ListviewComponent,
     DisplayItemComponent,
     ClientInfoComponent,
+    TitleComponent,
+    PersonViewComponent,
+    InfoComponent,
+    ClientViewComponent,
+    ChildrenViewComponent,
+    HrBtnGroupComponent,
   ],
   imports: [
     CommonModule,
@@ -63,6 +77,8 @@ import { ClientInfoComponent } from "./components/client-info/client-info.compon
     FormsModule,
     HttpClientModule,
     UiModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     NgbModule.forRoot(),
     StoreModule.forRoot({ session: reducer }),
     EffectsModule.forRoot([AppEffects]),

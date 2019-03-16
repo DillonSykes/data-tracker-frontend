@@ -1,2 +1,2 @@
 export { Family } from "./family";
-export { Parent } from "./parent";
+export { Parent, IParent } from "./parent";

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Person, Session, smokerPropertyCleaner } from "../../models";
+import {IPerson, Person, Session } from "../../models";
 import { HttpClient } from "@angular/common/http";
 import { NavigateService } from "../../navigate.service";
 import { AuthService } from "../../auth.service";
@@ -15,7 +15,7 @@ import * as SessionActions from "../../actions";
 })
 export class NewSessionComponent implements OnInit {
   public numberOfClients: number;
-  public clients: Person[];
+  public clients: IPerson[];
   constructor(
     private store: Store<AppState>,
     public navigate: NavigateService,
@@ -42,16 +42,11 @@ export class NewSessionComponent implements OnInit {
   }
 
   public save() {
-    const client1 = smokerPropertyCleaner(this.clients[0]);
-    let session: Session = new Session(client1);
+    let session: Session = new Session(this.clients[0]);
     if (this.numberOfClients > 1) {
-      const client2 = smokerPropertyCleaner(this.clients[1]);
-      session = { ...session, client_2: client2 };
-      this.store.dispatch(new SessionActions.AddSession(session));
-      this.navigate.goToChildren();
-    } else {
-      this.store.dispatch(new SessionActions.AddSession(session));
-      this.navigate.goToChildren();
+      session = { ...session, client_2: this.clients[1] };
     }
+    this.store.dispatch(new SessionActions.AddSession(session));
+    this.navigate.goToChildren();
   }
 }
