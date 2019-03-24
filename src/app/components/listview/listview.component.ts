@@ -25,7 +25,7 @@ export class ListviewComponent implements OnInit {
   deleteClient() {
     // TODO add confirmation token
     this.apiService.deleteClient(this.id).subscribe(res => {
-      window.location.reload();
+      return res;
     });
   }
   displayClient() {
