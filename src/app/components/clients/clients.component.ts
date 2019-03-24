@@ -17,7 +17,8 @@ import { Session } from "../../models";
       </span>
   </div>
 
-  <app-listview *ngFor="let client of clients; let i = index" text={{getClientsName(i)}} id={{this.clients[i].id}}></app-listview>`,
+  <app-listview *ngFor="let client of clients; let i = index" text={{getClientsName(i)}} id={{this.clients[i].id}}
+                (deletedSessionId)="deleteClientFromList($event)"></app-listview>`,
   styleUrls: ["./clients.component.css"],
 })
 export class ClientsComponent implements OnInit {
@@ -43,5 +44,12 @@ export class ClientsComponent implements OnInit {
 
   public getClientsName(i: number) {
     return this.clients[i].name;
+  }
+  deleteClientFromList(id: string) {
+    for (let i = 0; i < this.clients.length; i++) {
+      if (this.clients[i].id === id) {
+        this.clients.splice(i, 1);
+      }
+    }
   }
 }

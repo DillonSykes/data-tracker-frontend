@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { ApiService } from "../../api.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-listview",
@@ -14,19 +15,25 @@ import { ApiService } from "../../api.service";
   styleUrls: ["./listview.component.css"],
 })
 export class ListviewComponent implements OnInit {
+  @Output()
+  deletedSessionId = new EventEmitter<string>();
   @Input("text")
   text: string;
   @Input("id")
   id: string;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private toastr: ToastrService) {}
 
   ngOnInit() {}
   deleteClient() {
-    // TODO add confirmation token
-    this.apiService.deleteClient(this.id).subscribe(res => {
-      return res;
-    });
+    const deleteItem = confirm("Are you sure?");
+    if (deleteItem) {
+      // TODO add confirmation token
+      this.apiService.deleteClient(this.id).subscribe(res => {
+        this.deletedSessionId.emit(res.id);
+        this.toastr.success("Deleted");
+      });
+    }
   }
   displayClient() {
     // TODO this needs to a navigation to a /id page
