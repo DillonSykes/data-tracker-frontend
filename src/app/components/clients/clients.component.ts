@@ -1,9 +1,9 @@
-import {Component, OnInit} from "@angular/core";
-import {ApiService} from "../../api.service";
-import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
-import {AuthService} from "../../auth.service";
-import {Session} from "../../models";
+import { Component, OnInit } from "@angular/core";
+import { ApiService } from "../../api.service";
+import { environment } from "../../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+import { AuthService } from "../../auth.service";
+import { Session } from "../../models";
 
 @Component({
   selector: "app-clients",
@@ -17,7 +17,8 @@ import {Session} from "../../models";
       </span>
   </div>
 
-  <app-listview *ngFor="let client of clients; let i = index" text={{getClientsName(i)}} (click)="displayInfo(i)"></app-listview>`,
+  <app-listview *ngFor="let client of clients; let i = index" text={{getClientsName(i)}} id={{this.clients[i].id}}
+                (deletedSessionId)="deleteClientFromList($event)"></app-listview>`,
   styleUrls: ["./clients.component.css"],
 })
 export class ClientsComponent implements OnInit {
@@ -34,22 +35,21 @@ export class ClientsComponent implements OnInit {
   ngOnInit() {
     this.http
       .get(environment.API_ENDPOINT + "/session", {
-        headers: {"x-access-token": this.authService.getToken()},
+        headers: { "x-access-token": this.authService.getToken() },
       })
       .subscribe((clients: any) => {
         this.clients = clients.body;
       });
-    // this.clients = this.api.getAll("/session");
   }
 
   public getClientsName(i: number) {
     return this.clients[i].name;
   }
-
-  displayInfo(i: any) {
-    // TODO this needs to a navigation to a /id page
-    const id: string = this.clients[i].id;
-    console.log(this.clients);
-    window.location.assign("/clients/" + id);
+  deleteClientFromList(id: string) {
+    for (let i = 0; i < this.clients.length; i++) {
+      if (this.clients[i].id === id) {
+        this.clients.splice(i, 1);
+      }
+    }
   }
 }

@@ -21,4 +21,12 @@ export class ApiService {
       headers: { "x-access-token": this.authService.getToken() },
     });
   }
+  deleteClient(id: string): Observable<any> {
+    return this.http.delete(
+      environment.API_ENDPOINT + `/session/${id}`,
+      {
+        headers: { "x-access-token": this.authService.getToken() },
+      },
+    );
+  }
 }
