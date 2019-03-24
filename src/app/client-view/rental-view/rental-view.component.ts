@@ -1,11 +1,26 @@
-import { Component, OnInit } from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
+import {Rent} from "../../models/dwelling";
 
 @Component({
   selector: "app-rental-view",
-  template: ``,
+  template: `
+    <div *ngIf="rentalSelector == 3 && rentals">
+      
+    </div>
+    <div *ngIf="rentalSelector == 3 && !homes">
+      No homes
+    </div>
+  `,
 })
 export class RentalViewComponent implements OnInit {
-  constructor() {}
+  @Input("rental")
+  rentals: Rent[];
+  @Input("rentalSelector")
+  rentalSelector: number;
 
-  ngOnInit() {}
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
 }
