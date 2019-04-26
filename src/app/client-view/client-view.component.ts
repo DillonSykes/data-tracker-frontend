@@ -36,6 +36,7 @@ export class ClientViewComponent implements OnInit {
     });
     this.api.getById(id).subscribe(s => {
       this.session = s;
+      // TODO remove me
       this.session = { ...this.session, client_2: { first_name: "ANOTHER" } };
       console.log(s);
     });
