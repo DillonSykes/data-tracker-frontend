@@ -42,6 +42,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
 import { InfoNavBarComponent } from "./client-view/info-nav-bar/info-nav-bar.component";
 import { HomeViewComponent } from "./client-view/home-view/home-view.component";
+import { RentalViewComponent } from "./client-view/rental-view/rental-view.component";
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { HomeViewComponent } from "./client-view/home-view/home-view.component";
     ChildrenViewComponent,
     InfoNavBarComponent,
     HomeViewComponent,
+    RentalViewComponent,
   ],
   imports: [
     CommonModule,
