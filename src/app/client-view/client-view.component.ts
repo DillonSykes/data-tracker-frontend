@@ -19,6 +19,7 @@ import { ActivatedRoute } from "@angular/router";
       <app-children-view childSelector={{this.selector}} [session]="session"></app-children-view>
       <app-home-view [homes]="session.homes" homeSelector={{this.selector}}></app-home-view>
       <app-rental-view [rental]="session.rental" rentalSelector={{this.selector}}></app-rental-view>
+      <app-goals-view [goals]="session.goals" goalsSelector={{this.selector}}></app-goals-view>
     </div>`,
 })
 export class ClientViewComponent implements OnInit {
@@ -46,6 +47,7 @@ export class ClientViewComponent implements OnInit {
     return !!this.session.client_2;
   }
   switch(state: number) {
+    console.log(state);
     this.selector = state;
   }
 }
