@@ -47,7 +47,6 @@ export class ClientViewComponent implements OnInit {
     return !!this.session.client_2;
   }
   switch(state: number) {
-    console.log(state);
     this.selector = state;
   }
 }
