@@ -43,6 +43,7 @@ import { ToastrModule } from "ngx-toastr";
 import { InfoNavBarComponent } from "./client-view/info-nav-bar/info-nav-bar.component";
 import { HomeViewComponent } from "./client-view/home-view/home-view.component";
 import { RentalViewComponent } from "./client-view/rental-view/rental-view.component";
+import { GoalsViewComponent } from "./client-view/goals-view/goals-view.component";
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { RentalViewComponent } from "./client-view/rental-view/rental-view.compo
     InfoNavBarComponent,
     HomeViewComponent,
     RentalViewComponent,
+    GoalsViewComponent,
   ],
   imports: [
     CommonModule,

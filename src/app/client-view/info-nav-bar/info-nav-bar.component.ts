@@ -12,7 +12,6 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
       <button (click)="this.switch(5)" type="button" class="btn btn-secondary">Child Caretaker</button>
       <button (click)="this.switch(6)" type="button" class="btn btn-secondary">Goals</button>
     </div>`,
-  styleUrls: ["./info-nav-bar.component.css"],
 })
 export class InfoNavBarComponent implements OnInit {
   @Output()
