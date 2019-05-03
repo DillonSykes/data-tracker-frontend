@@ -18,6 +18,7 @@ import { ActivatedRoute } from "@angular/router";
       <app-info-nav-bar (btnSelector)="switch($event)"></app-info-nav-bar>
       <app-children-view childSelector={{this.selector}} [session]="session"></app-children-view>
       <app-home-view [homes]="session.homes" homeSelector={{this.selector}}></app-home-view>
+      <app-rental-view [rental]="session.rental" rentalSelector={{this.selector}}></app-rental-view>
     </div>`,
 })
 export class ClientViewComponent implements OnInit {
@@ -35,6 +36,7 @@ export class ClientViewComponent implements OnInit {
     });
     this.api.getById(id).subscribe(s => {
       this.session = s;
+      // TODO remove me
       this.session = { ...this.session, client_2: { first_name: "ANOTHER" } };
       console.log(s);
     });
