@@ -1,10 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-
+import { ClientView } from "../../enums";
 @Component({
   selector: "app-info-nav-bar",
   template: `
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button (click)="this.switch(0)" type="button" class="btn btn-secondary">Children</button>
+      <button (click)="this.switch(view.CHILDREN)" type="button" class="btn btn-secondary">Children</button>
       <button (click)="this.switch(1)" type="button" class="btn btn-secondary">GrandChildren</button>
       <button (click)="this.switch(2)" type="button" class="btn btn-secondary">Homes</button>
       <button (click)="this.switch(3)" type="button" class="btn btn-secondary">Rentals</button>
@@ -17,7 +17,7 @@ export class InfoNavBarComponent implements OnInit {
   @Output()
   btnSelector = new EventEmitter<number>();
 
-  constructor() {}
+  constructor(protected view: ClientView) {}
 
   ngOnInit() {}
 
